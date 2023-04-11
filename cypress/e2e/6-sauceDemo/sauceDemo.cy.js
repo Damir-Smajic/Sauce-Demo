@@ -3,6 +3,7 @@
 import loginPage from "../6-pageObjectsSauceDemo/loginPage.cy.js"
 import inventory from "../6-pageObjectsSauceDemo/inventoryPage.cy.js"
 import cart from "../6-pageObjectsSauceDemo/cartPage.cy.js"
+import sauceDemoData from "../../fixtures/sauceDemoData.json"
 
 context('Sauce Demo', () => {
 
@@ -15,7 +16,7 @@ context('Sauce Demo', () => {
     it('Type in standard_user', () => {
     
         loginPage.usernameType('standard_user')
-        loginPage.passwordType('secret_sauce')
+        loginPage.passwordType(sauceDemoData.password)
         loginPage.loginButtonClick()
         inventory.urlInventoryPageAssert()
         inventory.logout()
